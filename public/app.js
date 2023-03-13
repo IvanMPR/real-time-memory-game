@@ -1,3 +1,4 @@
+const socket = io();
 //prettier-ignore
 import { flipSound, pairHit, errorTone, pairMissTone, startGameTone } from './client-modules/audio.js';
 //prettier-ignore
@@ -15,6 +16,7 @@ export const modalBackground = document.querySelector('.modal-background');
 export const modalWindow = document.querySelector('.modal-window');
 const buttonModal = document.querySelector('.close-window');
 const statsContainer = document.querySelector('.stats-container');
+const enterUsernameButton = document.querySelector('fa-right-to-bracket');
 //prettier-ignore
 export const memoryCardsEasy = ['pattern', 'pattern', 'shutter', 'shutter', 'compass', 'compass', 'social', 'social', 'target', 'target', 'envelope', 'envelope',  'camera', 'camera', 'barcode', 'barcode']
 // helperObject stores temporary information for comparing guesses
@@ -93,7 +95,7 @@ button.addEventListener('click', function () {
   startTimer();
 
   cardFields.forEach((field, i) => {
-    field.style.backgroundImage = `url(memory_cards/easy/${memoryCardsEasy[i]}.jpg)`;
+    field.style.backgroundImage = `url(./img/cards/${memoryCardsEasy[i]}.jpg)`;
     field.classList.add('hidden');
   });
 
@@ -101,10 +103,19 @@ button.addEventListener('click', function () {
   button.style.display = 'none';
   statsContainer.classList.remove('pushed-below');
   statsContainer.classList.add('slide-in');
+
+  //   socket.emit('new player', )
 });
 
 buttonModal.addEventListener('click', closeModal);
 
 modalBackground.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-open')) closeModal();
+});
+
+enterUsernameButton.addEventListener('click', () => {
+  console.log('clicked');
+  const input = document.querySelector('.enter-player-name');
+  const username = input.value;
+  socket.emit('new player', { username });
 });

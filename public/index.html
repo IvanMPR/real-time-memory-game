@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
     <title>Memory Game</title>
     
   </head>
@@ -35,10 +36,17 @@
           <div class="gf-wrapper"><div class="gamefields" id="14"></div></div>
           <div class="gf-wrapper"><div class="gamefields" id="15"></div></div>
         </div>
+        <div class="players">
+          <div class="player-1 active-player">Player 1</div>
+          <div class="player-2">Player 2</div>
+        </div>
         <button class="btn">Start</button>
         <div class="stats-container pushed-below">
-         
-          <div class="stats-current-hits">
+         <div class="enter-player">
+          <i class="fa-solid fa-right-to-bracket fa-2x" title="Click to enter your name"></i>
+          <input type="text" class="enter-player-name" placeholder="Type in your name...">
+         </div>
+          <!-- <div class="stats-current-hits">
             <p class="label two">Hits</p>
             <p class="stats-current-hits-info">00</p>
           </div>
@@ -50,7 +58,7 @@
           <div class="stats-current-misses">
             <p class="label three">Misses</p>
             <p class="stats-current-misses-info">00</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
